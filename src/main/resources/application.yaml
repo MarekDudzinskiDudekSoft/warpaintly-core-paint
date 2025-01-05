@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: core-paint
+  datasource:
+    url: jdbc:postgresql://localhost:5432/warpaintly
+    driverClassName: org.postgresql.Driver
+    username: postgres
+    password: postgres
+
+
