@@ -6,9 +6,12 @@ public class GetPaintRequestDTO {
 
     private String brand;
 
-    public GetPaintRequestDTO(String name, String brand) {
+    private String colorGroup;
+
+    public GetPaintRequestDTO(String name, String brand, String colorGroup) {
         this.name = name;
         this.brand = brand;
+        this.colorGroup = colorGroup;
     }
 
     public String getName() {
@@ -27,4 +30,11 @@ public class GetPaintRequestDTO {
         this.brand = brand;
     }
 
+    public String getColorGroup() {
+        return colorGroup;
+    }
+
+    public void setColorGroup(String colorGroup) {
+        this.colorGroup = colorGroup;
+    }
 }

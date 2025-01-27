@@ -20,4 +20,8 @@ public class PaintRepositoryImpl {
                 );
     }
 
+    public void save(PaintEntity paint) {
+        paintJpaRepository.save(paint);
+    }
+
 }

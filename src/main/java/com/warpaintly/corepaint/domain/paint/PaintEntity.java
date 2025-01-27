@@ -16,6 +16,18 @@ public class PaintEntity {
     @Enumerated(EnumType.STRING)
     private PaintBrand brand;
 
+    @Enumerated(EnumType.STRING)
+    private ColorGroup colorGroup;
+
+    public PaintEntity(String name, PaintBrand brand, ColorGroup colorGroup) {
+        this.name = name;
+        this.brand = brand;
+        this.colorGroup = colorGroup;
+    }
+
+    public PaintEntity() {
+    }
+
     public Long getId() {
         return id;
     }
@@ -35,4 +47,13 @@ public class PaintEntity {
     public void setBrand(PaintBrand brand) {
         this.brand = brand;
     }
+
+    public ColorGroup getColorGroup() {
+        return colorGroup;
+    }
+
+    public void setColorGroup(ColorGroup colorGroup) {
+        this.colorGroup = colorGroup;
+    }
+
 }

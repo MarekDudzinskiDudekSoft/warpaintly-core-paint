@@ -1,6 +1,6 @@
 package com.warpaintly.corepaint.service.paint.dto;
 
-public class GetPaintResponseDTO {
+public class CreatePaintRequestDTO {
 
     private String name;
 
@@ -8,7 +8,7 @@ public class GetPaintResponseDTO {
 
     private String colorGroup;
 
-    public GetPaintResponseDTO(String name, String brand, String colorGroup) {
+    public CreatePaintRequestDTO(String name, String brand, String colorGroup) {
         this.name = name;
         this.brand = brand;
         this.colorGroup = colorGroup;
@@ -37,4 +37,5 @@ public class GetPaintResponseDTO {
     public void setColorGroup(String colorGroup) {
         this.colorGroup = colorGroup;
     }
+
 }
