@@ -8,10 +8,16 @@ public class GetPaintRequestDTO {
 
     private String colorGroup;
 
-    public GetPaintRequestDTO(String name, String brand, String colorGroup) {
+    private String paintType;
+
+    private String code;
+
+    public GetPaintRequestDTO(String name, String brand, String colorGroup, String paintType, String code) {
         this.name = name;
         this.brand = brand;
         this.colorGroup = colorGroup;
+        this.paintType = paintType;
+        this.code = code;
     }
 
     public String getName() {
@@ -36,5 +42,22 @@ public class GetPaintRequestDTO {
 
     public void setColorGroup(String colorGroup) {
         this.colorGroup = colorGroup;
+    }
+
+
+    public String getPaintType() {
+        return paintType;
+    }
+
+    public void setPaintType(String paintType) {
+        this.paintType = paintType;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
     }
 }

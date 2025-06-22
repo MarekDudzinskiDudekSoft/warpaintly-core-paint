@@ -3,6 +3,7 @@ package com.warpaintly.corepaint.service.paint;
 import com.warpaintly.corepaint.domain.paint.ColorGroup;
 import com.warpaintly.corepaint.domain.paint.PaintBrand;
 import com.warpaintly.corepaint.domain.paint.PaintEntity;
+import com.warpaintly.corepaint.domain.paint.PaintType;
 import com.warpaintly.corepaint.domain.paint.repository.PaintRepositoryImpl;
 import com.warpaintly.corepaint.service.paint.dto.CreatePaintRequestDTO;
 import org.springframework.stereotype.Component;
@@ -20,7 +21,9 @@ class CreatePaintUseCase {
         PaintEntity paint = new PaintEntity(
                 request.getName(),
                 PaintBrand.from(request.getBrand()),
-                ColorGroup.from(request.getColorGroup())
+                ColorGroup.from(request.getColorGroup()),
+                PaintType.from(request.getPaintType()),
+                request.getCode()
         );
         paintRepository.save(paint);
     }

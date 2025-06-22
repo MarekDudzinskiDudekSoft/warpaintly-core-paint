@@ -15,7 +15,8 @@ public enum ColorGroup {
     PURPLE,
     BLUE,
     GREEN,
-    BLACK;
+    BLACK,
+    BROWN;
 
     public static ColorGroup from(String name) {
         return Arrays.stream(values())

@@ -5,6 +5,8 @@ import com.warpaintly.corepaint.service.paint.dto.GetPaintRequestDTO;
 import com.warpaintly.corepaint.service.paint.dto.GetPaintResponseDTO;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class PaintService {
 
@@ -17,7 +19,7 @@ public class PaintService {
         this.createPaintUseCase = createPaintUseCase;
     }
 
-    public GetPaintResponseDTO get(GetPaintRequestDTO request) {
+    public List<GetPaintResponseDTO> get(GetPaintRequestDTO request) {
         return getPaintUseCase.execute(request);
     }
 

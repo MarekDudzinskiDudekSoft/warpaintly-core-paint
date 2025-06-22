@@ -19,7 +19,8 @@ public class PaintDomainOperationException extends DomainOperationException {
 
     public enum PaintDomainOperationErrorCode {
         PAINT_BRAND_INVALID,
-        PAINT_COLOR_GROUP_INVALID
+        PAINT_COLOR_GROUP_INVALID,
+        PAINT_TYPE_INVALID,
     }
 
 }

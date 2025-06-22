@@ -1,8 +1,10 @@
 package com.warpaintly.corepaint.domain.paint.repository;
 
 import com.warpaintly.corepaint.domain.paint.PaintEntity;
-import com.warpaintly.corepaint.domain.paint.exceptions.PaintNotPresentException;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 @Repository
 public class PaintRepositoryImpl {
@@ -13,11 +15,8 @@ public class PaintRepositoryImpl {
         this.paintJpaRepository = paintJpaRepository;
     }
 
-    public PaintEntity getByName(String name) {
-        return paintJpaRepository.findByName(name)
-                .orElseThrow(() -> new PaintNotPresentException(String.format("Paint with nane %s is not present!", name)
-                        )
-                );
+    public List<PaintEntity> getBy(Specification<PaintEntity> specification) {
+        return paintJpaRepository.findAll(specification);
     }
 
     public void save(PaintEntity paint) {
