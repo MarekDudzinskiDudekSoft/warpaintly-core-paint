@@ -35,26 +35,26 @@ class GetPaintUseCase {
                 .toList();
     }
 
-    private Specification<PaintEntity> createSpecification(GetPaintRequestDTO dto) {
+    private Specification<PaintEntity> createSpecification(GetPaintRequestDTO request) {
         return (root, query, cb) -> {
             List<Predicate> predicates = new ArrayList<>();
 
-            if (!dto.getName().isBlank()) {
-                predicates.add(cb.equal(root.get(PaintEntity_.NAME), dto.getName()));
+            if (!request.getName().isBlank()) {
+                predicates.add(cb.equal(root.get(PaintEntity_.NAME), request.getName()));
             }
-            if (!dto.getBrand().isBlank()) {
-                predicates.add(cb.equal(root.get(PaintEntity_.BRAND), dto.getBrand()));
+            if (!request.getBrand().isBlank()) {
+                predicates.add(cb.equal(root.get(PaintEntity_.BRAND), request.getBrand()));
             }
-            if (!dto.getColorGroup().isBlank()) {
-                predicates.add(cb.equal(root.get(PaintEntity_.COLOR_GROUP), dto.getColorGroup()));
-            }
-
-            if (!dto.getPaintType().isBlank()) {
-                predicates.add(cb.equal(root.get(PaintEntity_.PAINT_TYPE), dto.getColorGroup()));
+            if (!request.getColorGroup().isBlank()) {
+                predicates.add(cb.equal(root.get(PaintEntity_.COLOR_GROUP), request.getColorGroup()));
             }
 
-            if (!dto.getCode().isBlank()) {
-                predicates.add(cb.equal(root.get(PaintEntity_.CODE), dto.getColorGroup()));
+            if (!request.getPaintType().isBlank()) {
+                predicates.add(cb.equal(root.get(PaintEntity_.PAINT_TYPE), request.getColorGroup()));
+            }
+
+            if (!request.getCode().isBlank()) {
+                predicates.add(cb.equal(root.get(PaintEntity_.CODE), request.getColorGroup()));
             }
 
             return cb.and(predicates.toArray(new Predicate[0]));

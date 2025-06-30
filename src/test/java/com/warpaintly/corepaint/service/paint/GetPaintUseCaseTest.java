@@ -17,7 +17,6 @@ import java.util.List;
 import static com.warpaintly.corepaint.service.paint.PaintConstants.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -36,20 +35,20 @@ public class GetPaintUseCaseTest {
     void shouldGetPaintByName() {
         // given
         GetPaintRequestDTO requestDTO = new GetPaintRequestDTO(
-                PAINT_NAME,
-                PAINT_BRAND,
-                COLOR_GROUP,
-                PAINT_TYPE,
-                PAINT_CODE
+                PAINT_NAME_ABBADON_BLACK,
+                PAINT_BRAND_CITADEL,
+                COLOR_GROUP_BLACK,
+                PAINT_TYPE_BASE,
+                PAINT_CODE_ONE
         );
 
         // and
         PaintEntity paint = new PaintEntity(
-                PAINT_NAME,
-                PaintBrand.valueOf(PAINT_BRAND),
-                ColorGroup.valueOf(COLOR_GROUP),
-                PaintType.from(PAINT_TYPE),
-                PAINT_CODE
+                PAINT_NAME_ABBADON_BLACK,
+                PaintBrand.valueOf(PAINT_BRAND_CITADEL),
+                ColorGroup.valueOf(COLOR_GROUP_BLACK),
+                PaintType.from(PAINT_TYPE_BASE),
+                PAINT_CODE_ONE
         );
 
         // and

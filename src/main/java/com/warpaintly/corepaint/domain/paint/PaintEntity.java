@@ -2,6 +2,8 @@ package com.warpaintly.corepaint.domain.paint;
 
 import jakarta.persistence.*;
 
+import java.util.UUID;
+
 import static jakarta.persistence.GenerationType.IDENTITY;
 
 @Entity
@@ -11,6 +13,8 @@ public class PaintEntity {
     @Id
     @GeneratedValue(strategy = IDENTITY)
     private Long id;
+
+    private String uuid;
 
     private String name;
 
@@ -26,6 +30,7 @@ public class PaintEntity {
     private ColorGroup colorGroup;
 
     public PaintEntity(String name, PaintBrand brand, ColorGroup colorGroup, PaintType paintType, String code) {
+        this.uuid = UUID.randomUUID().toString();
         this.name = name;
         this.brand = brand;
         this.colorGroup = colorGroup;
@@ -34,6 +39,14 @@ public class PaintEntity {
     }
 
     public PaintEntity() {
+    }
+
+    public String getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
     }
 
     public Long getId() {

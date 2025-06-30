@@ -18,7 +18,7 @@ public class CreatePaintUseCaseTest {
 
     private final PaintRepositoryImpl paintRepository = Mockito.mock(PaintRepositoryImpl.class);
 
-    private final CreatePaintUseCase getPaintUseCase = new CreatePaintUseCase(
+    private final CreatePaintUseCase createPaintUseCase = new CreatePaintUseCase(
             paintRepository
     );
 
@@ -26,15 +26,15 @@ public class CreatePaintUseCaseTest {
     void shouldCreatePaint() {
         // given
         CreatePaintRequestDTO requestDTO = new CreatePaintRequestDTO(
-                PAINT_NAME,
-                PAINT_BRAND,
-                COLOR_GROUP,
-                PAINT_TYPE,
-                PAINT_CODE
+                PAINT_NAME_ABBADON_BLACK,
+                PAINT_BRAND_CITADEL,
+                COLOR_GROUP_BLACK,
+                PAINT_TYPE_BASE,
+                PAINT_CODE_ONE
         );
 
         // when
-        getPaintUseCase.execute(requestDTO);
+        createPaintUseCase.execute(requestDTO);
 
         // then
         verify(paintRepository, times(1)).save(any());
@@ -44,17 +44,17 @@ public class CreatePaintUseCaseTest {
     void shouldThrowExceptionDueToInvalidBrandName() {
         // given
         CreatePaintRequestDTO requestDTO = new CreatePaintRequestDTO(
-                PAINT_NAME,
+                PAINT_NAME_ABBADON_BLACK,
                 INVALID_PAINT_BRAND,
-                COLOR_GROUP,
-                PAINT_TYPE,
-                PAINT_CODE
+                COLOR_GROUP_BLACK,
+                PAINT_TYPE_BASE,
+                PAINT_CODE_ONE
         );
 
         // when
         PaintDomainOperationException exception = assertThrows(
                 PaintDomainOperationException.class,
-                () -> getPaintUseCase.execute(requestDTO)
+                () -> createPaintUseCase.execute(requestDTO)
         );
 
         // then
