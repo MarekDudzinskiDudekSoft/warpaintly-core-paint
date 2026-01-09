@@ -1,9 +1,6 @@
 package com.warpaintly.corepaint.service.paint;
 
-import com.warpaintly.corepaint.service.paint.dto.CreatePaintRequestDTO;
-import com.warpaintly.corepaint.service.paint.dto.GetPaintRequestDTO;
-import com.warpaintly.corepaint.service.paint.dto.GetPaintResponseDTO;
-import com.warpaintly.corepaint.service.paint.dto.UpdatePaintRequestDTO;
+import com.warpaintly.corepaint.service.paint.dto.*;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -27,11 +24,11 @@ public class PaintService {
         return getPaintUseCase.execute(request);
     }
 
-    public void create(CreatePaintRequestDTO request) {
-        createPaintUseCase.execute(request);
+    public CreatePaintResponseDTO create(CreatePaintRequestDTO request) {
+       return createPaintUseCase.execute(request);
     }
 
-    public void update(UpdatePaintRequestDTO request) {
-        updatePaintUseCase.execute(request);
+    public UpdatePaintResponseDTO update(UpdatePaintRequestDTO request) {
+       return updatePaintUseCase.execute(request);
     }
 }

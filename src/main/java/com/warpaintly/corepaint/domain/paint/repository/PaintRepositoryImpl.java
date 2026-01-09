@@ -28,8 +28,8 @@ public class PaintRepositoryImpl {
         return paintJpaRepository.findAll(specification);
     }
 
-    public void save(PaintEntity paint) {
-        paintJpaRepository.save(paint);
+    public PaintEntity save(PaintEntity paint) {
+        return paintJpaRepository.save(paint);
     }
 
 }

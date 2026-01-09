@@ -1,9 +1,7 @@
 package com.warpaintly.corepaint.external.rest;
 
 import com.warpaintly.corepaint.service.paint.PaintService;
-import com.warpaintly.corepaint.service.paint.dto.CreatePaintRequestDTO;
-import com.warpaintly.corepaint.service.paint.dto.GetPaintRequestDTO;
-import com.warpaintly.corepaint.service.paint.dto.GetPaintResponseDTO;
+import com.warpaintly.corepaint.service.paint.dto.*;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,8 +24,13 @@ public class PaintController {
     }
 
     @PostMapping
-    public void create(CreatePaintRequestDTO dto) {
-        paintService.create(dto);
+    public ResponseEntity<CreatePaintResponseDTO> create(CreatePaintRequestDTO dto) {
+        return ResponseEntity.ok(paintService.create(dto));
+    }
+
+    @PostMapping
+    public ResponseEntity<UpdatePaintResponseDTO> update(UpdatePaintRequestDTO dto) {
+        return ResponseEntity.ok(paintService.update(dto));
     }
 
 }
